@@ -2,6 +2,8 @@
   "name": "kwc-picker",
   "main": "kwc-picker.js",
   "dependencies": {
+    "@kano/kwc-style": "^3.0.0-beta.2",
+    "@polymer/iron-image": "^3.0.0-pre.21",
     "@polymer/polymer": "^3.0.0"
   },
   "devDependencies": {
