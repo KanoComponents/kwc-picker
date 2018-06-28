@@ -153,7 +153,7 @@ class KwcPicker extends PolymerElement {
           <template>
             <div class="item">
               <iron-image src="[[item.img]]"></iron-image>
-              <span>[[item.text]]</span>
+              <span>[[item.label]]</span>
             </div>
           </template>
         </dom-repeat>
