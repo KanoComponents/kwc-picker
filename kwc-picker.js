@@ -1,5 +1,6 @@
 import { html, PolymerElement } from '@polymer/polymer/polymer-element.js';
 import '@polymer/iron-image/iron-image.js';
+import '@polymer/iron-list/iron-list.js';
 import '@kano/kwc-style/typography';
 
 import { assetsIcon } from './assets.js';
@@ -149,14 +150,16 @@ class KwcPicker extends PolymerElement {
         </div>
       </div>
       <div class="content">
-        <dom-repeat items="[[items]]">
+        <iron-list items="[[items]]">
           <template>
-            <div class="item">
-              <iron-image src="[[item.img]]"></iron-image>
-              <span>[[item.label]]</span>
+            <div>
+              <div class="item">
+                <iron-image src="[[item.img]]"></iron-image>
+                <span>[[item.label]]</span>
+              </div>
             </div>
           </template>
-        </dom-repeat>
+        </iron-list>
       </div>
     `;
   }
