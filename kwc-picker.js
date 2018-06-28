@@ -57,7 +57,7 @@ class KwcPicker extends PolymerElement {
           color: #FFF;
         }
         .search {
-          margin: 9.5px 0 8px;
+          padding-top: 9.5px;
         }
         .search input,
         .search input::placeholder {
@@ -89,6 +89,7 @@ class KwcPicker extends PolymerElement {
         .content {
           height: 240px;
           overflow: auto;
+          padding-top: 9.5px;
         }
         .item {
           display: flex;
@@ -129,7 +130,7 @@ class KwcPicker extends PolymerElement {
         }
         .content::-webkit-scrollbar-track {
           background: #414A51;
-          margin-bottom: 8px;
+          margin: 9.5px 0 8px;
         }
         .content::-webkit-scrollbar-thumb {
           background: #22272D;
@@ -143,7 +144,7 @@ class KwcPicker extends PolymerElement {
           ${assetsIcon}
           <p>Assets</p>
         </div>
-        <div class="search">
+        <div class="search" hidden$="[[!filter]]">
           <input type="search" placeholder="Search">
         </div>
       </div>
@@ -166,6 +167,10 @@ class KwcPicker extends PolymerElement {
         notify: true,
         observer: '_itemsChanged',
       },
+      filter: {
+        type: Boolean,
+        value: false,
+      }
     };
   }
   _itemsChanged () {
