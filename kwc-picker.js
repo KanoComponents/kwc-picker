@@ -157,7 +157,7 @@ class KwcPicker extends PolymerElement {
           <div>
             <div class="item">
               <iron-image src="[[item.img]]"></iron-image>
-              <span>[[item.label]]</span>
+              <span>[[computeLabel(item)]]</span>
             </div>
           </div>
         </template>
@@ -181,6 +181,11 @@ class KwcPicker extends PolymerElement {
         notify: true,
         value: '',
       },
+      filterOn: {
+        type: String,
+        value: 'label',
+        notify: true,
+      }
     };
   }
   _itemsChanged () {
@@ -192,12 +197,18 @@ class KwcPicker extends PolymerElement {
         return null;
       } else {
         search = search.toLowerCase();
-        return function(item) {
-          const label = item.label.toLowerCase();
+        return (item) => {
+          const label = this.computeLabel(item).toLowerCase();
           return label.includes(search);
         }
       }
     }
+  }
+  computeLabel (item) {
+    let labelName = Object.keys(item).find((prop) => {
+      return prop != "img";
+    });
+    return item[labelName];
   }
 }
 
