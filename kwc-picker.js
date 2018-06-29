@@ -146,20 +146,21 @@ class KwcPicker extends PolymerElement {
           <p>Assets</p>
         </div>
         <div class="search" hidden$="[[!filter]]">
-          <input type="search" placeholder="Search">
+          <input
+            type="search"
+            placeholder="Search"
+            value="{{_search::input}}">
         </div>
       </div>
       <div class="content">
-        <iron-list items="[[items]]">
-          <template>
-            <div>
-              <div class="item">
-                <iron-image src="[[item.img]]"></iron-image>
-                <span>[[item.label]]</span>
-              </div>
+        <template is="dom-repeat" items="{{items}}" as="item" filter="{{_filter(_search)}}">
+          <div>
+            <div class="item">
+              <iron-image src="[[item.img]]"></iron-image>
+              <span>[[item.label]]</span>
             </div>
-          </template>
-        </iron-list>
+          </div>
+        </template>
       </div>
     `;
   }
@@ -167,17 +168,36 @@ class KwcPicker extends PolymerElement {
     return {
       items: {
         type: Array,
+        value: [],
         notify: true,
         observer: '_itemsChanged',
       },
       filter: {
         type: Boolean,
         value: false,
-      }
+      },
+      _search: {
+        type: String,
+        notify: true,
+        value: '',
+      },
     };
   }
   _itemsChanged () {
     this.set('items', items);
+  }
+  _filter(search) {
+    if (this.items) {
+      if (!search) {
+        return null;
+      } else {
+        search = search.toLowerCase();
+        return function(item) {
+          const label = item.label.toLowerCase();
+          return label.includes(search);
+        }
+      }
+    }
   }
 }
 
