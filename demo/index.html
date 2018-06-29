@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
@@ -9,66 +10,114 @@
     <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 
     <script type="module">
-      import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
-      import '@polymer/iron-demo-helpers/demo-snippet';
+        import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
+        import '@polymer/iron-demo-helpers/demo-snippet';
     </script>
 
     <script type="module" src="../kwc-picker.js"></script>
 
     <custom-style>
-      <style is="custom-style" include="demo-pages-shared-styles">
-      </style>
+        <style is="custom-style" include="demo-pages-shared-styles">
+        </style>
     </custom-style>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="vertical-section-container centered">
-      <h3>Basic kwc-picker demo</h3>
-      <demo-snippet>
-        <template>
-          <kwc-picker items="[[items]]"></kwc-picker>
-          <kwc-picker items="[[items]]" filter></kwc-picker>
-          <script>
-              const items = [
-                  {
-                      label: 'Random',
-                      img: 'https://goo.gl/7SWbab',
-                  },
-                  {
-                      label: 'All assets',
-                      img: 'https://goo.gl/7SWbab',
-                  },
-                  {
-                      label: 'Thingy',
-                      img: 'https://goo.gl/7SWbab',
-                  },
-                  {
-                      label: 'Random',
-                      img: 'https://goo.gl/7SWbab',
-                  },
-                  {
-                      label: 'Feather',
-                      img: 'https://goo.gl/7SWbab',
-                  },
-                  {
-                      label: 'My Pumpkin',
-                      img: 'https://goo.gl/7SWbab',
-                  },
-                  {
-                      label: 'My Wand',
-                      img: 'https://goo.gl/7SWbab',
-                  },
-                  {
-                      label: 'Harry!',
-                      img: 'https://goo.gl/7SWbab',
-                  },
-                  {
-                      label: 'Thingy 9',
-                      img: 'https://goo.gl/7SWbab',
-                  },
-              ];
-          </script>
-        </template>
-      </demo-snippet>
+        <h3>Basic kwc-picker demo</h3>
+        <demo-snippet>
+            <template>
+                <kwc-picker items="[[items]]"></kwc-picker>
+                <script>
+                    const items = [
+                        {
+                            label: 'Random',
+                            img: 'https://goo.gl/7SWbab',
+                        },
+                        {
+                            label: 'All assets',
+                            img: 'https://goo.gl/7SWbab',
+                        },
+                        {
+                            label: 'Thingy',
+                            img: 'https://goo.gl/7SWbab',
+                        },
+                        {
+                            label: 'Random',
+                            img: 'https://goo.gl/7SWbab',
+                        },
+                        {
+                            label: 'Feather',
+                            img: 'https://goo.gl/7SWbab',
+                        },
+                        {
+                            label: 'My Pumpkin',
+                            img: 'https://goo.gl/7SWbab',
+                        },
+                        {
+                            label: 'My Wand',
+                            img: 'https://goo.gl/7SWbab',
+                        },
+                        {
+                            label: 'Harry!',
+                            img: 'https://goo.gl/7SWbab',
+                        },
+                        {
+                            label: 'Thingy 9',
+                            img: 'https://goo.gl/7SWbab',
+                        },
+                    ];
+                </script>
+            </template>
+        </demo-snippet>
+
+        <h3>Filter kwc-picker demo</h3>
+        <demo-snippet>
+            <template>
+                <kwc-picker items filter></kwc-picker>
+                <script>
+                    const items = [
+                        {
+                            label: 'Random',
+                            img: 'https://goo.gl/7SWbab',
+                        },
+                        {
+                            label: 'All assets',
+                            img: 'https://goo.gl/7SWbab',
+                        },
+                        {
+                            label: 'Thingy',
+                            img: 'https://goo.gl/7SWbab',
+                        },
+                        {
+                            label: 'Random',
+                            img: 'https://goo.gl/7SWbab',
+                        },
+                        {
+                            label: 'Feather',
+                            img: 'https://goo.gl/7SWbab',
+                        },
+                        {
+                            label: 'My Pumpkin',
+                            img: 'https://goo.gl/7SWbab',
+                        },
+                        {
+                            label: 'My Wand',
+                            img: 'https://goo.gl/7SWbab',
+                        },
+                        {
+                            label: 'Harry!',
+                            img: 'https://goo.gl/7SWbab',
+                        },
+                        {
+                            label: 'Thingy 9',
+                            img: 'https://goo.gl/7SWbab',
+                        },
+                    ];
+                </script>
+            </template>
+        </demo-snippet>
     </div>
-  </body>
+</body>
+
 </html>
