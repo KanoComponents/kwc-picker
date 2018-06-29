@@ -90,7 +90,7 @@ class KwcPicker extends PolymerElement {
         .content {
           height: 240px;
           overflow: auto;
-          padding-top: 9.5px;
+          margin-top: 9.5px;
         }
         .item {
           display: flex;
@@ -153,7 +153,7 @@ class KwcPicker extends PolymerElement {
         </div>
       </div>
       <div class="content">
-        <template is="dom-repeat" items="{{items}}" as="item" filter="{{_filter(_search)}}">
+        <template is="dom-repeat" items="[[items]]" filter="[[_filter(_search)]]">
           <div>
             <div class="item">
               <iron-image src="[[item.img]]"></iron-image>
