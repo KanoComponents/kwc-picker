@@ -75,7 +75,7 @@
         <h3>Filter kwc-picker demo</h3>
         <demo-snippet>
             <template>
-                <kwc-picker id="filter" filter></kwc-picker>
+                <kwc-picker id="filter" name="Kano" filter></kwc-picker>
                 <script>
                     const filterItems = [
                         {
@@ -116,54 +116,6 @@
                         },
                     ];
                     document.querySelector("#filter").items = filterItems;
-                </script>
-            </template>
-        </demo-snippet>
-
-        <h3>Filter-on kwc-picker demo</h3>
-        <demo-snippet>
-            <template>
-                <kwc-picker id="filter-on" filter filter-on="text"></kwc-picker>
-                <script>
-                    const filterOnItems = [
-                        {
-                            text: 'Random 2',
-                            img: 'https://goo.gl/7SWbab',
-                        },
-                        {
-                            text: 'All assets',
-                            img: 'https://goo.gl/7SWbab',
-                        },
-                        {
-                            text: 'Thingy',
-                            img: 'https://goo.gl/7SWbab',
-                        },
-                        {
-                            text: 'Random',
-                            img: 'https://goo.gl/7SWbab',
-                        },
-                        {
-                            text: 'Feather',
-                            img: 'https://goo.gl/7SWbab',
-                        },
-                        {
-                            text: 'My Pumpkin',
-                            img: 'https://goo.gl/7SWbab',
-                        },
-                        {
-                            text: 'My Wand',
-                            img: 'https://goo.gl/7SWbab',
-                        },
-                        {
-                            text: 'Harry!',
-                            img: 'https://goo.gl/7SWbab',
-                        },
-                        {
-                            text: 'Thingy 9',
-                            img: 'https://goo.gl/7SWbab',
-                        },
-                    ];
-                    document.querySelector("#filter-on").items = filterOnItems;
                 </script>
             </template>
         </demo-snippet>
