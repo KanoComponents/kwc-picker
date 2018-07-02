@@ -67,7 +67,12 @@
                             img: 'https://goo.gl/7SWbab',
                         },
                     ];
-                    document.querySelector("#basic").items = basicItems;
+                    let elBasic = document.querySelector("#basic");
+
+                    elBasic.items = basicItems;
+                    elBasic.addEventListener("selected-changed", (e) => {
+                        console.log(e.detail.value);
+                    });
                 </script>
             </template>
         </demo-snippet>
@@ -115,7 +120,12 @@
                             img: 'https://goo.gl/7SWbab',
                         },
                     ];
-                    document.querySelector("#filter").items = filterItems;
+                    let elFilter = document.querySelector("#filter");
+
+                    elFilter.items = filterItems;
+                    elFilter.addEventListener("selected-changed", (e) => {
+                        console.log(e.detail.value);
+                    });
                 </script>
             </template>
         </demo-snippet>
