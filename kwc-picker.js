@@ -154,11 +154,9 @@ class KwcPicker extends PolymerElement {
       </div>
       <div class="content">
         <template is="dom-repeat" items="[[items]]" filter="[[_filter(_search)]]">
-          <div>
-            <div class="item">
-              <iron-image src="[[item.img]]"></iron-image>
-              <span>[[computeLabel(item)]]</span>
-            </div>
+          <div class="item">
+            <iron-image src="[[item.img]]"></iron-image>
+            <span>[[computeLabel(item)]]</span>
           </div>
         </template>
       </div>
