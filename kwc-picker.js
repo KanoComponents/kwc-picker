@@ -186,7 +186,10 @@ class KwcPicker extends PolymerElement {
       }
     };
   }
-  _itemsChanged () {
+  connectedCallback() {
+    super.connectedCallback();
+  }
+  _itemsChanged (items) {
     this.set('items', items);
   }
   _filter(search) {
