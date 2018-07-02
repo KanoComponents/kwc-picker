@@ -1,5 +1,6 @@
 import { html, PolymerElement } from '@polymer/polymer/polymer-element.js';
 import '@polymer/iron-image/iron-image.js';
+import '@polymer/iron-selector/iron-selector.js';
 import '@kano/kwc-style/typography.js';
 
 import { assetsIcon } from './assets.js';
@@ -141,23 +142,25 @@ class KwcPicker extends PolymerElement {
             </style>
             <div class="header">
                 <div class="top">
-                ${assetsIcon}
-                <p>[[name]]</p>
+                    ${assetsIcon}
+                    <p>[[name]]</p>
                 </div>
                 <div class="search" hidden$="[[!filter]]">
-                <input
-                    type="search"
-                    placeholder="Search"
-                    value="{{_search::input}}">
+                    <input
+                        type="search"
+                        placeholder="Search"
+                        value="{{_search::input}}">
                 </div>
             </div>
             <div class="content">
-                <template is="dom-repeat" items="[[items]]" filter="[[_filter(_search)]]">
-                <div class="item">
-                    <iron-image src="[[item.img]]"></iron-image>
-                    <span>[[item.label]]</span>
-                </div>
-                </template>
+                <iron-selector selected="{{selectedIndex}}" attr-for-selected="id">
+                    <template is="dom-repeat" items="[[_items]]" filter="[[_filter(_search)]]">
+                        <div class="item" id\$="[[item.key]]">
+                            <iron-image src="[[item.img]]"></iron-image>
+                            <span>[[item.label]]</span>
+                        </div>
+                    </template>
+                </iron-selector>
             </div>
         `;
     }
@@ -184,7 +187,24 @@ class KwcPicker extends PolymerElement {
                 type: String,
                 value: 'label',
             },
+            selectedIndex: {
+                type: String,
+            },
+            selected: {
+                type: Object,
+                notify: true,
+                computed: '_computeSelected(selectedIndex)',
+            },
+            _items: {
+                computed: '_computeItems(items.splices)',
+            },
         };
+    }
+    _computeSelected(index) {
+        return this.items ? this.items[index] : null;
+    }
+    _computeItems() {
+        return this.items.map((item, index) => Object.assign({ key: index }, item));
     }
     _filter(search) {
         if (this.items) {
