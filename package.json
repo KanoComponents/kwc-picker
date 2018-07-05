@@ -1,5 +1,5 @@
 {
-	"name": "kwc-picker",
+	"name": "@kano/kwc-picker",
 	"version": "0.0.1",
 	"main": "kwc-picker.js",
 	"dependencies": {
