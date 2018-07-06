@@ -103,7 +103,7 @@ class KwcPicker extends PolymerElement {
                 .item:hover {
                     cursor: pointer;
                 }
-                .item iron-image {
+                .item .image {
                     width: 32px;
                     height: 32px;
                     background: #414A51;
@@ -111,8 +111,10 @@ class KwcPicker extends PolymerElement {
                     display: inline-flex;
                     align-items: center;
                     justify-content: center;
-                    --iron-image-width: 16px;
-                    --iron-image-height: 16px;
+                }
+                .item iron-image {
+                    width: 24px;
+                    height: 24px;
                 }
                 .item span {
                     color: #9FA4A8;
@@ -156,7 +158,9 @@ class KwcPicker extends PolymerElement {
                 <iron-selector selected="{{selectedIndex}}" attr-for-selected="id">
                     <template is="dom-repeat" items="[[_items]]" filter="[[_filter(_search)]]">
                         <div class="item" id\$="[[item.key]]">
-                            <iron-image src="[[item.img]]"></iron-image>
+                            <div class="image">
+                                <iron-image src="[[item.img]]" sizing="contain"></iron-image>
+                            </div>
                             <span>[[item.label]]</span>
                         </div>
                     </template>
