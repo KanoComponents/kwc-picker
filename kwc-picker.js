@@ -104,13 +104,12 @@ class KwcPicker extends PolymerElement {
                     cursor: pointer;
                 }
                 .item .image {
-                    width: 32px;
-                    height: 32px;
                     background: #414A51;
                     border-radius: 4px;
                     display: inline-flex;
                     align-items: center;
                     justify-content: center;
+                    padding: 4px;
                 }
                 .item iron-image {
                     width: 24px;
