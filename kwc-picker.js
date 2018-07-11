@@ -180,7 +180,7 @@ class KwcPicker extends PolymerElement {
                                 <iron-image src="[[item.img]]" sizing="contain"></iron-image>
                             </div>
                             <span>[[item.label]]</span>
-                            <div class="check" hidden$="[[_computeCheck(item.key, selectedIndex)]]">
+                            <div class="check" hidden$="[[isCheckHidden(item.key, selectedIndex)]]">
                                 ${checkIcon}
                             </div>
                         </div>
@@ -242,8 +242,8 @@ class KwcPicker extends PolymerElement {
             };
         }
     }
-    _computeCheck(key, index) {
-        return key == index ? false : true;
+    isCheckHidden(key, index) {
+        return key != index;
     }
 }
 
