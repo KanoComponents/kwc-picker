@@ -243,7 +243,7 @@ class KwcPicker extends PolymerElement {
         }
     }
     _computeCheck(key, index) {
-        return key === index ? false : true;
+        return key == index ? false : true;
     }
 }
 
