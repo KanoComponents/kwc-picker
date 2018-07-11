@@ -3,7 +3,7 @@ import '@polymer/iron-image/iron-image.js';
 import '@polymer/iron-selector/iron-selector.js';
 import '@kano/kwc-style/typography.js';
 
-import { assetsIcon } from './assets.js';
+import { assetsIcon, checkIcon } from './assets.js';
 
 /**
  * `kwc-picker`
@@ -95,6 +95,7 @@ class KwcPicker extends PolymerElement {
                 .item {
                     display: flex;
                     align-items: center;
+                    justify-content: space-between;
                     margin: 8px 0;
                 }
                 .item:first-child{
@@ -112,6 +113,16 @@ class KwcPicker extends PolymerElement {
                     align-items: center;
                     justify-content: center;
                 }
+                .item .check {
+                    width: 16px;
+                    height: 16px;
+                    margin-right: 8px;
+                }
+                .item .check svg {
+                    width: 100%;
+                    height: 100%;
+                    fill: #FFF;
+                }
                 .item iron-image {
                     width: 24px;
                     height: 24px;
@@ -120,8 +131,15 @@ class KwcPicker extends PolymerElement {
                     color: #9FA4A8;
                     margin-left: 10px;
                     transition: all 0.2s ease;
+                    flex: 1;
                 }
                 .item:hover span {
+                    color: #FFF;
+                }
+                .item.iron-selected .image {
+                    background: #5E6367;
+                }
+                .item.iron-selected span {
                     color: #FFF;
                 }
                 .content::-webkit-scrollbar {
@@ -162,6 +180,9 @@ class KwcPicker extends PolymerElement {
                                 <iron-image src="[[item.img]]" sizing="contain"></iron-image>
                             </div>
                             <span>[[item.label]]</span>
+                            <div class="check" hidden$="[[_computeCheck(item.key, selectedIndex)]]">
+                                ${checkIcon}
+                            </div>
                         </div>
                     </template>
                 </iron-selector>
@@ -220,6 +241,9 @@ class KwcPicker extends PolymerElement {
                 return label.includes(search.toLowerCase());
             };
         }
+    }
+    _computeCheck(key, index) {
+        return key === index ? false : true;
     }
 }
 
