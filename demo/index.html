@@ -77,6 +77,50 @@
             </template>
         </demo-snippet>
 
+        <h3>No icons kwc-picker demo</h3>
+        <demo-snippet>
+            <template>
+                <kwc-picker id="no-icons"></kwc-picker>
+                <script>
+                    const noIconsItems = [
+                        {
+                            label: 'Random',
+                        },
+                        {
+                            label: 'All assets',
+                        },
+                        {
+                            label: 'Thingy',
+                        },
+                        {
+                            label: 'Random',
+                        },
+                        {
+                            label: 'Feather',
+                        },
+                        {
+                            label: 'My Pumpkin',
+                        },
+                        {
+                            label: 'My Wand',
+                        },
+                        {
+                            label: 'Harry!',
+                        },
+                        {
+                            label: 'Thingy 9',
+                        },
+                    ];
+                    let elNoIcons = document.querySelector("#no-icons");
+
+                    elNoIcons.items = noIconsItems;
+                    elNoIcons.addEventListener("selected-changed", (e) => {
+                        console.log(e.detail.value);
+                    });
+                </script>
+            </template>
+        </demo-snippet>
+
         <h3>Filter kwc-picker demo</h3>
         <demo-snippet>
             <template>
