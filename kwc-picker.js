@@ -48,6 +48,10 @@ class KwcPicker extends PolymerElement {
                     position: relative;
                     top: -0.7px;
                 }
+                .top .icon {
+                    width: 16px;
+                    height: 16px;
+                }
                 .top p {
                     color: #9FA4A8;
                     margin: 0;
@@ -166,7 +170,12 @@ class KwcPicker extends PolymerElement {
             </style>
             <div class="header">
                 <div class="top">
-                    ${assetsIcon}
+                    <template is="dom-if" if="[[!icon]]">
+                        ${assetsIcon}
+                    </template>
+                    <template is="dom-if" if="[[icon]]">
+                        <iron-image class="icon" src="[[icon]]" sizing="contain"></iron-image>
+                    </template>
                     <p>[[name]]</p>
                 </div>
                 <div class="search" hidden$="[[!filter]]">
@@ -227,6 +236,10 @@ class KwcPicker extends PolymerElement {
             _items: {
                 computed: '_computeItems(items.splices)',
             },
+            icon: {
+                type: String,
+                value: null,
+            }
         };
     }
     _computeSelected(index) {
