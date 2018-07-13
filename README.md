@@ -67,6 +67,41 @@ const items = [
 
 <br/>
 
+## Icon:
+
+This is the basic one, with the content and a custom icon on top.
+
+<br/>
+
+```html
+<kwc-picker items="[[items]]" icon="https://goo.gl/1bdvq5"></kwc-picker>
+```
+
+```js
+const items = [
+    {
+        img: "https://kano.me/img1.png",
+        label: "label 1",
+    },
+    {
+        img: "https://kano.me/img2.png",
+        label: "label 2",
+    },
+];
+```
+
+### Properties:
+
+- HTML attributes:
+    - `items`
+        - *required*
+        - default is `[]`
+    - `icon`
+        - *optional*
+        - default is the `plus` icon
+
+<br/>
+
 ## Selected Index:
 
 This is the basic one, with the content and the value is already been setted by the `selected-index` property.
