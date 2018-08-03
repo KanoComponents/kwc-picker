@@ -187,7 +187,7 @@ class KwcPicker extends PolymerElement {
             </div>
             <div class="content">
                 <iron-selector selected="{{selectedIndex}}" attr-for-selected="id">
-                    <template is="dom-repeat" items="[[_items]]" filter="[[_filter(_search)]]">
+                    <template is="dom-repeat" items="[[_items]]" filter="[[_filter(_search)]]" id="list">
                         <div class="item" id\$="[[item.key]]">
                             <div class="image" hidden$="[[!item.img]]">
                                 <iron-image src="[[item.img]]" sizing="contain"></iron-image>
@@ -241,6 +241,11 @@ class KwcPicker extends PolymerElement {
                 value: null,
             }
         };
+    }
+    scrollToSelected() {
+        if (this.selectedIndex !== undefined) {
+            this.shadowRoot.getElementById(this.selectedIndex).scrollIntoView({block: "center", behavior: "smooth"});
+        }
     }
     _computeSelected(index) {
         return this.items ? this.items[index] : null;
