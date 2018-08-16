@@ -95,6 +95,7 @@ class KwcPicker extends PolymerElement {
                     height: 240px;
                     overflow: auto;
                     margin-top: 9.5px;
+                    -webkit-overflow-scrolling: touch;
                 }
                 .item {
                     display: flex;
