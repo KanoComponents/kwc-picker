@@ -188,11 +188,13 @@ class KwcPicker extends PolymerElement {
             </div>
             <div class="content">
                 <iron-selector selected="{{selectedIndex}}" attr-for-selected="id">
-                    <template is="dom-repeat" items="[[_items]]" filter="[[_filter(_search)]]" id="list">
+                    <template is="dom-repeat" items="[[_items]]" id="list">
                         <div class="item" id\$="[[item.key]]">
-                            <div class="image" hidden$="[[!item.img]]">
-                                <iron-image src="[[item.img]]" sizing="contain"></iron-image>
-                            </div>
+                            <template is="dom-if" if="[[_hasImage(item.img)]]">
+                                <div class="image">
+                                    <iron-image src="[[item.img]]" sizing="contain"></iron-image>
+                                </div>
+                            </template>
                             <span>[[item.label]]</span>
                             <div class="check" hidden$="[[isCheckHidden(item.key, selectedIndex)]]">
                                 ${checkIcon}
@@ -240,12 +242,12 @@ class KwcPicker extends PolymerElement {
             icon: {
                 type: String,
                 value: null,
-            }
+            },
         };
     }
     scrollToSelected() {
         if (this.selectedIndex !== undefined) {
-            this.shadowRoot.getElementById(this.selectedIndex).scrollIntoView({block: "center", behavior: "smooth"});
+            this.shadowRoot.getElementById(this.selectedIndex).scrollIntoView({ block: 'center', behavior: 'smooth' });
         }
     }
     _computeSelected(index) {
@@ -264,9 +266,13 @@ class KwcPicker extends PolymerElement {
                 return label.includes(search.toLowerCase());
             };
         }
+        return null;
+    }
+    _hasImage(img) {
+        return typeof img === 'string';
     }
     isCheckHidden(key, index) {
-        return key != index;
+        return key !== index;
     }
 }
 
