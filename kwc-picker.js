@@ -92,7 +92,7 @@ class KwcPicker extends PolymerElement {
                     cursor: pointer;
                 }
                 .content {
-                    height: 240px;
+                    height: 220px;
                     overflow: auto;
                     margin-top: 9.5px;
                     -webkit-overflow-scrolling: touch;
